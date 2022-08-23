@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Proyecto js</title>
 </head>
 
-<body>
-<Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint laudantium repudiandae temporibus cumque in optio pariatur facilis ipsa doloribus, voluptatum dignissimos ex porro asperiores amet accusamus ipsum minima quo hic!></Lorem>
+<body id="indexEstilo">
+    <p>
+    Deben adivinar el número, el jugador que mas puntos consiga sera el ganador! Si gana en Facil suma 100 pts / Si gana en medio suma 150 pts / Si gana en dificl suma 400 pts
+    </p> 
+    <p id="para"> Seleccione la dificultad para empezar el juego (F = facil / M = medio / D = dificil </p>
+<button onclick = "cambioDificultad('F');">Facil</button>
+<button onclick = "cambioDificultad('M');">Medio</button>
+<button onclick = "cambioDificultad('D');">Dificil</button>
+
+<h1>Ingrese nombre del primer jugador</h1>
+<form action="" class="formulario">
+    <input type="text"  placeholder="Ingrese su nombre" id="txtIdNombre">
+</form>
+<form action="" class="formulario">
+    <h1>Ingrese nombre del segundo jugador</h1>
+    <input type="text"  placeholder="Ingrese su nombre" id="txtIdNombre2">
+</form>
 </body>
 <script src="proyecto.js"></script>
 </html>

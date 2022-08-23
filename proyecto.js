@@ -8,17 +8,14 @@ let numeroIngresado;
 let numeroRandom;
 let mensaje;
 
-alert ("Deben adivinar el número, el jugador que mas puntos consiga sera el ganador! Si gana en Facil suma 100 pts / Si gana en medio suma 150 pts / Si gana en dificl suma 400 pts");
-    jugador1 = prompt("Ingrese jugador 1");
+    jugador1 = document.getElementById ("txtIdNombre");
     jugador1 = jugador1.toUpperCase ();
     jugadores = jugador1;
-
-    
+    alert (jugadores);
 
 for (i = 0; i < 2; i++) {
 
-dificultad = prompt ("Seleccione la dificultad para empezar el juego (F = facil / M = medio / D = dificil");
-dificultad = dificultad.toUpperCase ();
+dificultad = document.getElementById ("");
 
 switch(dificultad){
     case "F":
@@ -29,7 +26,7 @@ switch(dificultad){
     break;
     case "D":
         numeroMax = 50;
-    break;
+        break;
     default:
         alert ("Dificultad ingresada incorrectamente");
 }
