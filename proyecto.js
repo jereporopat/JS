@@ -1,35 +1,69 @@
-let jugadores;
-let jugador1;
 let jugador2;
 let vidas = 3;
-let dificultad;
+let btnf;
+let btnm;
+let btnd;
+let dificultad = "";
 let numeroMax;
+let numeroASumar = 0;
+let score = 0;
 let numeroIngresado;
 let numeroRandom;
 let mensaje;
 
-    jugador1 = document.getElementById ("txtIdNombre");
+//funcion para capturar datos desde html
+function capturar(){
+    var jugador1 = document.getElementById ("jugador1").value;
+    if (jugador1 == " "){
+        alert ("El nombre es obligatorio");
+        document.getElementById ("jugador1").focus();
+    }
+    console.log (jugadores);
+}
+function dificultades (){
+
+    var btnf = document.getElementById ("btnf");
+    var btnm = document.getElementById ("btnm");
+    var btnd = document.getElementById ("btnd");
+
+    if (btnf == 1){
+        dificultad = F;
+    }
+    if (btnm == 1){
+        dificultad = M;
+    }
+    if (btnd == 1) {
+        dificultad = D;
+    }
+
+    alert ("La dificultad seleccionada es: " + dificultad);
+    switch(dificultad){
+        case "F":
+            numeroMax = 10;
+            numeroASumar = 100;
+        break;
+        case "M":
+            numeroMax = 30;
+            numeroASumar = 150;
+        break;
+        case "D":
+            numeroMax = 50;
+            numeroASumar = 400;
+            break;
+        default:
+            alert ("Dificultad ingresada incorrectamente");
+    }
+}
+   /* jugador1 = document.getElementById ("txtIdNombre");
     jugador1 = jugador1.toUpperCase ();
     jugadores = jugador1;
     alert (jugadores);
-
+*/
 for (i = 0; i < 2; i++) {
 
 dificultad = document.getElementById ("");
 
-switch(dificultad){
-    case "F":
-        numeroMax = 10;
-    break;
-    case "M":
-        numeroMax = 30;
-    break;
-    case "D":
-        numeroMax = 50;
-        break;
-    default:
-        alert ("Dificultad ingresada incorrectamente");
-}
+
 numeroRandom = getRandomInt(numeroMax);
 alert ("Debe adivinar el número entre el 0 y el " + numeroMax);
 
@@ -74,6 +108,23 @@ if ( vidas <= 0 && jugadores == jugador1){
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
+  score = score + numeroASumar;
+
+  alert ("Usted obtuvo un puntaje de: " + score);
+
+  //Lo que quiero hacer es guardar un historial en storage de jugadores que jugaron con su maximo de score y mostrarlo en una lista
+  
+  function historialDatos(){
+
+    let jugadores = {
+        nombre = "",
+        maximoScoreObtenido = "",
+    }
+  };
+  
+  let nombre = "x";
+  localStorage.setItem ("nombre", nombre);
+
 
 // necesito ponerle puntajes a las dificultades y sumarlo en un total
 // luego comparar ese score entre los dos jugadores y que haya un ganador
