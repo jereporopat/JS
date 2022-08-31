@@ -20,23 +20,27 @@ function capturar(){
     }
     console.log (jugadores);
 }
-function dificultades (){
+    btnf = document.getElementById ("btnf").addEventListener ("click", manejador);
+    btnm = document.getElementById ("btnm").addEventListener ("click", manejador);
+    btnd = document.getElementById ("btnd").addEventListener ("click", manejador);
 
-    var btnf = document.getElementById ("btnf");
-    var btnm = document.getElementById ("btnm");
-    var btnd = document.getElementById ("btnd");
+    function manejador (e){
+        if (!e) e = window.event;
 
-    if (btnf == 1){
-        dificultad = F;
-    }
-    if (btnm == 1){
-        dificultad = M;
-    }
-    if (btnd == 1) {
-        dificultad = D;
+        if (e.target.id = "btnf"){
+            alert ("Facil");
+        }
+        if (e.target.id = "btnm"){
+            alert ("Medio");
+        }
+        if (e.target.id = "btnm"){
+            alert ("Dificil");
+        }
     }
 
-    alert ("La dificultad seleccionada es: " + dificultad);
+
+
+ /*   alert ("La dificultad seleccionada es: " + dificultad);
     switch(dificultad){
         case "F":
             numeroMax = 10;
@@ -53,12 +57,12 @@ function dificultades (){
         default:
             alert ("Dificultad ingresada incorrectamente");
     }
-}
-   /* jugador1 = document.getElementById ("txtIdNombre");
+/*
+    jugador1 = document.getElementById ("txtIdNombre");
     jugador1 = jugador1.toUpperCase ();
     jugadores = jugador1;
     alert (jugadores);
-*/
+
 for (i = 0; i < 2; i++) {
 
 dificultad = document.getElementById ("");
@@ -126,5 +130,5 @@ function getRandomInt(max) {
   localStorage.setItem ("nombre", nombre);
 
 
-// necesito ponerle puntajes a las dificultades y sumarlo en un total
-// luego comparar ese score entre los dos jugadores y que haya un ganador
+ necesito ponerle puntajes a las dificultades y sumarlo en un total
+ luego comparar ese score entre los dos jugadores y que haya un ganador*/
