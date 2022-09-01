@@ -28,19 +28,19 @@ function capturar(){
         if (!e) e = window.event;
 
         if (e.target.id = "btnf"){
-            alert ("Facil");
+            swal ("Facil");
         }
         if (e.target.id = "btnm"){
-            alert ("Medio");
+            swal ("Medio");
         }
         if (e.target.id = "btnm"){
-            alert ("Dificil");
+            swal ("Dificil");
         }
     }
 
 
 
- /*   alert ("La dificultad seleccionada es: " + dificultad);
+ /*   swal ("La dificultad seleccionada es: " + dificultad);
     switch(dificultad){
         case "F":
             numeroMax = 10;
@@ -69,43 +69,43 @@ dificultad = document.getElementById ("");
 
 
 numeroRandom = getRandomInt(numeroMax);
-alert ("Debe adivinar el número entre el 0 y el " + numeroMax);
+swal ("Debe adivinar el número entre el 0 y el " + numeroMax);
 
 
 do{    
     numeroIngresado = prompt ("Elija un numero del 0 al " + numeroMax);
 
     if(numeroIngresado == numeroRandom && jugadores == jugador1){
-        alert ("Felicidades! " + jugador1 + " es un ganador");
+        swal ("Felicidades! " + jugador1 + " es un ganador");
         vidas = vidas + 3;
         jugador2 = prompt ("Ingrese jugador 2");
         jugador2 = jugador2.toUpperCase ();
         jugadores = jugador2;
-        alert ("Es el turno de " + jugador2 + " suerte!");
+        swal ("Es el turno de " + jugador2 + " suerte!");
         break;
     }
     if(numeroIngresado == numeroRandom && jugadores == jugador2){
-        alert ("Felicidades! " + jugador2 + " es un ganador");
+        swal ("Felicidades! " + jugador2 + " es un ganador");
         break;
     }
     else{
         vidas --;
-        alert ("Fallaste! Te quedan " + vidas + " vidas");
-        alert ("El numero era: " + numeroRandom);
+        swal ("Fallaste! Te quedan " + vidas + " vidas");
+        swal ("El numero era: " + numeroRandom);
     }
 }while (vidas>0);
 if ( vidas <= 0 && jugadores == jugador1){
-    alert ("Perdiste! " + jugador1 + " no tenes mas vidas.");
-    alert ("El numero era: " + numeroRandom);
+    swal ("Perdiste! " + jugador1 + " no tenes mas vidas.");
+    swal ("El numero era: " + numeroRandom);
     jugador2 = prompt ("Ingrese jugador 2");
     jugador2 = jugador2.toUpperCase ();
     jugadores = jugador2;
-    alert ("Es el turno de " + jugador2 + " suerte!");
+    swal ("Es el turno de " + jugador2 + " suerte!");
     vidas = vidas + 3;
     }
     if ( vidas <= 0 && jugadores == jugador2){
-        alert ("Perdiste! " + jugador2 + " no tenes mas vidas.");
-        alert ("El numero era: " + numeroRandom);
+        swal ("Perdiste! " + jugador2 + " no tenes mas vidas.");
+        swal ("El numero era: " + numeroRandom);
         break;
         }
 }
@@ -114,7 +114,7 @@ function getRandomInt(max) {
   }
   score = score + numeroASumar;
 
-  alert ("Usted obtuvo un puntaje de: " + score);
+  swal ("Usted obtuvo un puntaje de: " + score);
 
   //Lo que quiero hacer es guardar un historial en storage de jugadores que jugaron con su maximo de score y mostrarlo en una lista
   
