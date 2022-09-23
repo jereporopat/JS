@@ -15,13 +15,23 @@
     Deben adivinar el número, el jugador que mas puntos consiga sera el ganador! Si gana en Facil suma 100 pts / Si gana en medio suma 150 pts / Si gana en dificl suma 400 pts
     </p> 
     <form>
-        <input type = "text" name ="jugadores" id = "jugadores" placeholder="Ingrese jugador 1">
-        <button type="button" onclick="capturar()">Aceptar</button>
+        <input type = "text" name ="jugadores" id = "jugador1" placeholder="Ingrese jugador 1">
+        <button type="button" onclick="capturar1('jugador1')">Aceptar</button>
+
+        <button type="button" onclick="jugar1()">Juega jugador 1</button>
+
+        <input type = "text" name ="jugadores" id = "jugador2" placeholder="Ingrese jugador 2">
+        <button type="button" onclick="capturar2('jugador2')">Aceptar</button>
+
+        <button type="button" onclick="jugar2()">Juega jugador 2</button>
+
+        <button type="button" onclick="ganador()">Comprobar ganador</button>
+
 
         <p> Seleccione la dificultad para empezar el juego </p>
-        <button type="button" id="btnf" onclick="manejador (e)">Facil</button>
-        <button type="button" id="btnm" onclick="manejador (e)">Medio</button>
-        <button type="button" id="btnd" onclick="manejador (e)">Dificil</button>
+        <button type="button" id="btnf" onclick="manejador ('btnf')">Facil</button>
+        <button type="button" id="btnm" onclick="manejador ('btnm')">Medio</button>
+        <button type="button" id="btnd" onclick="manejador ('btnd')">Dificil</button>
 
     </form>
 

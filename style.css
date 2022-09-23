@@ -1,10 +1,11 @@
 #indexEstilo{
-    background: #4B79A1;
+background: #4B79A1;
 background: -webkit-linear-gradient(to right, #283E51, #4B79A1);
 background: linear-gradient(to right, #283E51, #4B79A1);
 text-align: left;
-    color: azure;
-    padding: 20px;
+align-items: center;
+color: azure;
+padding: 20px;
 }
 */
 body {

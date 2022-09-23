@@ -1,136 +1,112 @@
 let jugador2;
-let vidas = 3;
+let jugador1;
+let jugadores;
+let vidas1 = 3;
+let vidas2 = 3;
 let btnf;
 let btnm;
 let btnd;
 let dificultad = "";
 let numeroMax;
 let numeroASumar = 0;
-let score = 0;
+let score1 = 0;
+let score2 = 0;
 let numeroIngresado;
 let numeroRandom;
 let mensaje;
 
 //funcion para capturar datos desde html
-function capturar(){
-    var jugador1 = document.getElementById ("jugador1").value;
+function capturar1(){
+    jugador1 = document.getElementById ("jugador1").value;
     if (jugador1 == " "){
         alert ("El nombre es obligatorio");
         document.getElementById ("jugador1").focus();
     }
-    console.log (jugadores);
+    console.log (jugador1);
+}
+function capturar2(){
+    jugador2 = document.getElementById ("jugador2").value;
+    if (jugador2 == " "){
+        alert ("El nombre es obligatorio");
+        document.getElementById ("jugador2").focus();
+    }
+    console.log (jugador2);
 }
     btnf = document.getElementById ("btnf").addEventListener ("click", manejador);
     btnm = document.getElementById ("btnm").addEventListener ("click", manejador);
     btnd = document.getElementById ("btnd").addEventListener ("click", manejador);
 
-    function manejador (e){
-        if (!e) e = window.event;
+function manejador (e){
 
-        if (e.target.id == "btnf"){
+    if (e == "btnf"){
             swal ("La dificultad seleccionada es facil");
             numeroMax = 10;
             numeroASumar = 100;
-        }
-        if (e.target.id == "btnm"){
+    }
+    if (e == "btnm"){
             swal ("La dificultad seleccionada es medio");
             numeroMax = 30;
             numeroASumar = 150;
-        }
-        if (e.target.id == "btnd"){
+    }
+    if (e == "btnd"){
             swal ("La dificultad seleccionada es dificil");
             numeroMax = 50;
             numeroASumar = 400;
-        }
     }
-
-    jugador1 = document.getElementById ("txtIdNombre");
-    jugador1 = jugador1.toUpperCase ();
-    jugadores = jugador1;
-    alert (jugadores);
-
-for (i = 0; i < 2; i++) {
-
-dificultad = document.getElementById ("");
-
-
-numeroRandom = getRandomInt(numeroMax);
-swal ("Debe adivinar el número entre el 0 y el " + numeroMax);
-
-
-do{    
-    numeroIngresado = prompt ("Elija un numero del 0 al " + numeroMax);
-
-    if(numeroIngresado == numeroRandom && jugadores == jugador1){
-        swal ("Felicidades! " + jugador1 + " es un ganador");
-        vidas = vidas + 3;
-        jugador2 = prompt ("Ingrese jugador 2");
-        jugador2 = jugador2.toUpperCase ();
-        jugadores = jugador2;
-        swal ("Es el turno de " + jugador2 + " suerte!");
-        break;
     }
-    if(numeroIngresado == numeroRandom && jugadores == jugador2){
-        swal ("Felicidades! " + jugador2 + " es un ganador");
-        break;
-    }
-    else{
-        vidas --;
-        swal ("Fallaste! Te quedan " + vidas + " vidas");
-        swal ("El numero era: " + numeroRandom);
-    }
-}while (vidas>0);
-if ( vidas <= 0 && jugadores == jugador1){
-    swal ("Perdiste! " + jugador1 + " no tenes mas vidas.");
-    swal ("El numero era: " + numeroRandom);
-    jugador2 = prompt ("Ingrese jugador 2");
-    jugador2 = jugador2.toUpperCase ();
-    jugadores = jugador2;
-    swal ("Es el turno de " + jugador2 + " suerte!");
-    vidas = vidas + 3;
-    }
-    if ( vidas <= 0 && jugadores == jugador2){
-        swal ("Perdiste! " + jugador2 + " no tenes mas vidas.");
-        swal ("El numero era: " + numeroRandom);
-        break;
-        }
-}
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  }
-  score = score + numeroASumar;
+}
+    
+function jugar1 (){    
 
-  swal ("Usted obtuvo un puntaje de: " + score);
+    if (vidas1 > 0){
+       numeroRandom = getRandomInt(numeroMax);
+        swal ("Debe adivinar el número entre el 0 y el " + numeroMax);
+        
+        numeroIngresado = prompt ("Elija un numero del 0 al " + numeroMax);
+        
+            if(numeroIngresado == numeroRandom){
+                swal ("Felicidades! " + jugador1 + " es un ganador");
+                score1 = score1 + numeroASumar;
+            }else{
+                    vidas1 --;
+                    swal ("Fallaste! Te quedan " + vidas1 + " vidas, el numero era: " + numeroRandom);
+                }
+    }else{
+            if(vidas1 == 0 && numeroIngresado != numeroRandom){
+                swal ("Te quedaste sin vidas! Tu puntaje es de: " + score1);
+            }
+        }
+}
+function jugar2 (){    
 
-  //Intente lo de fetch pero no lo entendi mucho y tampoco le vi un funcionamiento viable en mi proyecto
-  let url = 'https://jsonplaceholder.typicode.com/users/';
-  fetch(url)
-      .then( response => response.json() )
-      .then( data => mostrarData(data) )
-      .catch( error => console.log(error) )
-
-  const mostrarData = (data) => {
-      console.log(data)
-      let body = ""
-      for (var i = 0; i < data.length; i++) {      
-         body+=`<tr><td>${data[i].id}</td><td>${data[i].name}</td><td>${data[i].email}</td></tr>`
+    if (vidas2 > 0){
+          numeroRandom = getRandomInt(numeroMax);
+          swal ("Debe adivinar el número entre el 0 y el " + numeroMax);
+      
+          numeroIngresado = prompt ("Elija un numero del 0 al " + numeroMax);
+      
+              if(numeroIngresado == numeroRandom){
+                  
+                  swal ("Felicidades! " + jugador2 + " es un ganador");
+                  score2 = score2 + numeroASumar;
+              }
+              else{
+                  vidas2 --;
+                  swal ("Fallaste! Te quedan " + vidas2 + " vidas, el numero era: " + numeroRandom);
+              }
+      }else{
+          if(vidas2 == 0 && numeroIngresado != numeroRandom){
+              swal ("Te quedaste sin vidas! Tu puntaje es de: " + score2);
+          }
       }
-      document.getElementById('data').innerHTML = body
-      //console.log(body)
+}
+function ganador(){
 
-  //Lo que quiero hacer es guardar un historial en storage de jugadores que jugaron con su maximo de score y mostrarlo en una lista
-  
- // function historialDatos(){
-
- //   let jugadores = {
-   //     nombre = "",
-    //    maximoScoreObtenido = "",
-   // }
-  //};
-  
- // let nombre = "x";
-  //localStorage.setItem ("nombre", nombre);
-
-
-// necesito ponerle puntajes a las dificultades y sumarlo en un total
- //luego comparar ese score entre los dos jugadores y que haya un ganador
+    if (score1 > score2){
+        swal ("El ganador es: "+ jugador1 + " con un puntaje de: " + score1 + ". El jugador: " + jugador2 + " obtuvo un puntaje de: " + score2);
+    }else{
+        swal ("El ganador es: "+ jugador2 + " con un puntaje de: " + score2 + ". El jugador: " + jugador1 + " obtuvo un puntaje de: " + score1);
+    }
+}
